@@ -6,6 +6,8 @@ from itertools import product
 # from functools import reduce
 from torch.utils.data import Dataset
 
+from sklearn.preprocessing import OneHotEncoder
+
 class RateDataset(Dataset):
     def __init__(self, user_tensor, item_tensor, target_tensor):
         self.user_tensor = user_tensor
@@ -113,6 +115,47 @@ def AppendFeaturesDict(appended_dict:dict, feature_name:str, keys, values, value
 def GetFeaturesList(features_dict, features_type, search_ids):
     feat_keys = features_type.keys()
     return [np.array([features_dict[int(id)][key] for id in search_ids]) for key in feat_keys]
+
+def TurnFeat2MultiHot(feat, f_type_dict):
+    """
+    feat: n \times 1 array
+    f_type_dict: dict
+    """
+
+    num_categories_list = list(range(f_type_dict["vocabulary_size"]))
+    onehotencoder = OneHotEncoder(
+        categories = [num_categories_list[1:], ],
+        sparse=False,
+        handle_unknown="ignore",
+    )
+
+    if f_type_dict["f_type"] == "Sparse":
+        return onehotencoder.fit_transform(feat)
+    elif f_type_dict["f_type"] == "VarLenSparse":
+        row, col = feat.shape
+        temp_result = np.stack([
+            onehotencoder.fit_transform(feat[:,i].reshape(-1,1))
+            for i in range(col)
+        ])
+        return np.sum(temp_result, axis=0)
+    else:
+        return feat
+
+def GetFeatArray(user_features_dict, item_features_dict, batch_user_id, batch_item_id, user_ftype, item_ftype):
+    
+    user_feat_list = GetFeaturesList(user_features_dict, user_ftype, batch_user_id)
+    item_feat_list = GetFeaturesList(item_features_dict, item_ftype, batch_item_id)
+
+    user_feat_list = [
+        TurnFeat2MultiHot(user_feat, feat_dict[1]) 
+        for user_feat, feat_dict in zip(user_feat_list, user_ftype.items())
+    ]
+    item_feat_list = [
+        TurnFeat2MultiHot(item_feat, feat_dict[1]) 
+        for item_feat, feat_dict in zip(item_feat_list, item_ftype.items())
+    ]
+
+    return np.column_stack(user_feat_list + item_feat_list)
 
 # def BatchGetAllFeatures(user_features_dict, item_features_dict, batch_user_id, batch_item_id):
 #     batch_features = [
