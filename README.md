@@ -73,7 +73,7 @@ python3 deepctr_main.py -dataname -modelname
         <tr>
             <td>FM</td>
             <td> 0.5379 </td> <td> 0.0479 </td> <td> 0.0319 </td>
-            <td> x </td> <td> x </td> <td> x </td>
+            <td> 0.5535 </td> <td> x </td> <td> x </td>
             <td> x </td> <td> x </td> <td> x </td>
         </tr>
         <tr>
