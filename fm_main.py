@@ -158,7 +158,7 @@ def main():
     print("Mean of Recall@10:", metrics_arr[0])
     print("Mean of NDCG@10:", metrics_arr[1])
 
-    utils.SaveObject("metric_result/mf_" + args.dataname + "_metrics.pkl", metrics_list)
+    utils.SaveObject("metric_result/fm_" + args.dataname + "_metrics.pkl", metrics_list)
 
 if __name__ == "__main__":
     main()
