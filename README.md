@@ -268,8 +268,8 @@ $$\mathrm{v}_k=W^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,..
 
 - `Convolutional Click Prediction Model (CCPM)`:
 此模型最主要的特色是將卷積(Convolution)的概念納入CTR的預測模型中。
- 用法一：考慮每個人在不同的時間軸上會有不同的特徵(Features)，透過*1*-D Conv搭配*p*-max 池化層(*p*-max pooling)來擷取不同時間的資訊。*p*-max 池化層主要在處理每個人在與Item的互動時間、次數並不一致而無法單純使用原始的最大池化層進行。
- 用法二：
+ - 用法一：考慮每個人在不同的時間軸上會有不同的特徵(Features)，透過*1*-D Conv搭配*p*-max 池化層(*p*-max pooling)來擷取不同時間的資訊。*p*-max 池化層主要在處理每個人在與Item的互動時間、次數並不一致而無法單純使用原始的最大池化層進行。
+ - 用法二：
  <p align="center">
   <img src="model_figure/CCPM.jpg" width="450">
  </p>
