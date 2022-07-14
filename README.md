@@ -58,62 +58,14 @@ python3 deepctr_main.py -dataname -modelname
     </thead>
     <tbody>
         <tr>
-            <td rowspan=10> Typical </td>
-            <td>UCF-s</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>UCF-p</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>ICF-s</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>ICF-p</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
+            <td rowspan=2> Typical </td>
             <td>MF</td>
-            <td> x </td> <td> x </td> <td> x </td>
+            <td> 0.5379 </td> <td> 0.0479 </td> <td> 0.0319 </td>
             <td> x </td> <td> x </td> <td> x </td>
             <td> x </td> <td> x </td> <td> x </td>
         </tr>
         <tr>
             <td>FM</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>BPR-MF</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>BPR-FM</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>GBDT+LR</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>XGB+LR</td>
             <td> x </td> <td> x </td> <td> x </td>
             <td> x </td> <td> x </td> <td> x </td>
             <td> x </td> <td> x </td> <td> x </td>
