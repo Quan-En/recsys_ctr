@@ -66,7 +66,7 @@ python3 deepctr_main.py -dataname -modelname
         <tr>
             <td rowspan=2> Typical </td>
             <td>MF</td>
-            <td> 0.5486 </td> <td> x </td> <td> x </td>
+            <td> 0.5433 </td> <td> x </td> <td> x </td>
             <td> x </td> <td> x </td> <td> x </td>
             <td> x </td> <td> x </td> <td> x </td>
         </tr>
