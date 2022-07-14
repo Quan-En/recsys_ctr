@@ -119,7 +119,7 @@ python3 deepctr_main.py -dataname -modelname
             <td> x </td> <td> x </td> <td> x </td>
         </tr>
         <tr>
-            <td rowspan=10> NN-based </td>
+            <td rowspan=8> NN-based </td>
             <td>FNN</td>
             <td> 0.5371 </td> <td> 0.0420 </td> <td> 0.0227 </td>
             <td> 0.5482 </td> <td> 0.1121 </td> <td> 0.00007 </td>
@@ -150,22 +150,10 @@ python3 deepctr_main.py -dataname -modelname
             <td> 0.3641 </td> <td> 0.0284 </td> <td> 0.00018 </td>
         </tr>
         <tr>
-            <td>NeuMF</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
             <td>WD</td>
             <td> 0.5357 </td> <td> 0.0391 </td> <td> 0.0176 </td>
             <td> 0.5474 </td> <td> 0.1121 </td> <td> 0.00007 </td>
             <td> 0.3596 </td> <td> 0.0283 </td> <td> 0.00007 </td>
-        </tr>
-        <tr>
-            <td>DeepCorss</td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
         </tr>
         <tr>
             <td>NFM</td>
