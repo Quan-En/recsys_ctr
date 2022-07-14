@@ -1,7 +1,13 @@
 # Model Design & Comparison for Recommendation Models
 <!--https://latex.codecogs.com/eqneditor/editor.php-->
 本作業將試著套用多種不同方法在不同資料集上。使用的方法主要分成兩類分別為第一類經典法及第二類以神經網路為主的相關方法。
-在第二類的方法以下方方式執行
+
+在第一類的方法以下方方式執行
+```r
+python3 fm_main.py -dataname
+```
+
+而第二類的方法以下方方式執行
 ```r
 python3 deepctr_main.py -dataname -modelname 
 ```
@@ -138,7 +144,7 @@ python3 deepctr_main.py -dataname -modelname
 ## Methods
 
 ### Typical Methods
-- `Collaborative Filtering (CF)`:協同過濾中主要分做 User-based 與 Item-based 兩種，而評估相似程度的方法中常見的有 Cosine Similarity 與 Pearson Correlation Coefficient 兩種，因此考慮不同種的協同過濾與不同的相似程度評估準則共有4種方法。分別為: User-based & Cosine Similarity(UCF-s)、Item-based & Cosine Similarity(ICF-s)、User-based & Pearson Correlation(UCF-p)、Item-based & Cosine Similarity(ICF-p)。
+
 - `Matrix Factorization (MF)`:矩陣分解的推薦系統的核心概念認為用戶興趣主要被少數的因素所影響以及商品被選擇與否也是受到少數的因素影響。因此將評分矩陣(Rating Matrix)拆解，投射到低維度的矩陣的隱因子空間(Latent Factor Space)。主要運用奇異值分解法(Singular Value Decomposition, SVD)進行矩陣分解，將原本的評分矩陣拆解成使用者因子矩陣(User Factor Matrix)以及物品因子矩陣(Item Factor Matrix)。
 - `Factorization Machine (FM)`:Factorization Machine在稀疏資料(Sparse Data)進行特徵交叉(Feature Interaction)並抽取出潛在因子(Latent Factor)，可在線性時間複雜度來進行訓練，且方便規模化。相較於簡易線性模型多考量了交互作用項，又比二階多項式迴歸(Degree-2 Polynomial Regression)更加具備泛化(Generalization)的能力。
 
