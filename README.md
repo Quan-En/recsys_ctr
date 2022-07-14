@@ -1,4 +1,5 @@
-# Model Design & Comparison for Recommendation Models
+# Click-Through-Rate (CTR) prediction
+## Model Design & Comparison for Recommendation Models
 <!--https://latex.codecogs.com/eqneditor/editor.php-->
 本作業將試著套用多種不同方法在不同資料集上。使用的方法主要分成兩類分別為第一類經典法及第二類以神經網路為主的相關方法。
 
@@ -15,7 +16,7 @@ python3 fm_main.py -dataname
 python3 deepctr_main.py -dataname -modelname 
 ```
 
-## Dataset Intro
+### Dataset Intro
 資料集共三種分別為: `movielens`, `yelp` 及 `douban_book`
 
 <table align="center">
@@ -44,14 +45,14 @@ python3 deepctr_main.py -dataname -modelname
     </tbody>
 </table>
 
-## Measure criteria
+### Measure criteria
 - `RMSE`
 - `Recall@10`
 - `NDCG@10`
 
-## Methods
+### Methods
 
-### Typical Methods
+#### Typical Methods
 
 - `Matrix Factorization (MF)`:矩陣分解的推薦系統的核心概念認為用戶興趣主要被少數的因素所影響以及商品被選擇與否也是受到少數的因素影響。因此將評分矩陣(Rating Matrix)拆解，投射到低維度的矩陣的隱因子空間(Latent Factor Space)。主要運用奇異值分解法(Singular Value Decomposition, SVD)進行矩陣分解，將原本的評分矩陣拆解成使用者因子矩陣(User Factor Matrix)以及物品因子矩陣(Item Factor Matrix)。
 - `Factorization Machine (FM)`:Factorization Machine在稀疏資料(Sparse Data)進行特徵交叉(Feature Interaction)並抽取出潛在因子(Latent Factor)，可在線性時間複雜度來進行訓練，且方便規模化。相較於簡易線性模型多考量了交互作用項，又比二階多項式迴歸(Degree-2 Polynomial Regression)更加具備泛化(Generalization)的能力。
@@ -69,7 +70,7 @@ y(\mathrm{x}) &= w_0+\sum_{i=1}^{n}{w_ix_i}+\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\lan
   $$
 --->
   
-### NN-based Methods
+#### NN-based Methods
 - `FM-supported Neural Network (FNN)`:
 以Factorization Machine為基礎，將FM所產生的特徵向量，投入一個類神經網路中，以MLP(Multi Layers Perceptron)代替內積來進行預測任務。
 
