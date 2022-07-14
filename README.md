@@ -1,4 +1,4 @@
-Model Design & Comparison for Recommendation Models
+# Model Design & Comparison for Recommendation Models
 <!--https://latex.codecogs.com/eqneditor/editor.php-->
 本作業將試著套用多種不同方法在不同資料集上。使用的方法主要分成兩類分別為第一類經典法及第二類以神經網路為主的相關方法。
 在第二類的方法以下方方式執行
