@@ -26,7 +26,7 @@ def Predict(Id_info_dict, data_pair_dict, features_dict_dict, features_type_dict
             )
             
             preds = model(torch.Tensor(batch_model_input).to(device))
-            pred_list.append(preds.reshape(-1))
+            pred_list.append(preds.reshape(-1).cpu().numpy())
             
     preds = np.concatenate(pred_list)
     
