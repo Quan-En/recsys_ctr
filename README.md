@@ -4,6 +4,9 @@
 
 在第一類的方法以下方方式執行
 ```r
+python3 mf_main.py -dataname
+```
+```r
 python3 fm_main.py -dataname
 ```
 
@@ -45,101 +48,6 @@ python3 deepctr_main.py -dataname -modelname
 - `RMSE`
 - `Recall@10`
 - `NDCG@10`
-
-## Result
-
-<table align="center">
-    <thead>
-        <tr>
-            <th colspan=2 rowspan=2> </th>
-            <th align="center" colspan=3>Movielens</th>
-            <th align="center" colspan=3>Yelp</th>
-            <th align="center" colspan=3>Douban Book</th>
-        </tr>
-        <tr>
-            <th align="center">RMSE</th> <th align="center">Recall@10</th> <th align="center">NDCG@10</th>
-            <th align="center">RMSE</th> <th align="center">Recall@10</th> <th align="center">NDCG@10</th>
-            <th align="center">RMSE</th> <th align="center">Recall@10</th> <th align="center">NDCG@10</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=2> Typical </td>
-            <td>MF</td>
-            <td> 0.5433 </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td>FM</td>
-            <td> 0.5379 </td> <td> 0.0479 </td> <td> 0.0319 </td>
-            <td> 0.5535 </td> <td> x </td> <td> x </td>
-            <td> x </td> <td> x </td> <td> x </td>
-        </tr>
-        <tr>
-            <td rowspan=8> NN-based </td>
-            <td>FNN</td>
-            <td> 0.5371 </td> <td> 0.0420 </td> <td> 0.0227 </td>
-            <td> 0.5482 </td> <td> 0.1121 </td> <td> 0.00007 </td>
-            <td> 0.3591 </td> <td> 0.0285 </td> <td> 0.00021 </td>
-        </tr>
-        <tr>
-            <td>IPNN</td>
-            <td> 0.5352 </td> <td> 0.0533 </td> <td> 0.0326 </td>
-            <td> 0.5443 </td> <td> 0.1120 </td> <td> 0.00005 </td>
-            <td> 0.3579 </td> <td> 0.0283 </td> <td> 0.00014 </td>
-        </tr>
-        <tr>
-            <td>OPNN</td>
-            <td> 0.5349 </td> <td> 0.0489 </td> <td> 0.0269 </td>
-            <td> 0.5455 </td> <td> 0.1120 </td> <td> 0.00005 </td>
-            <td> 0.3614 </td> <td> 0.0283 </td> <td> 0.00019 </td>
-        </tr>
-        <tr>
-            <td>PIN</td>
-            <td> 0.5348 </td> <td> 0.0516 </td> <td> 0.0320 </td>
-            <td> 0.5467 </td> <td> 0.1121 </td> <td> 0.00006 </td>
-            <td> 0.3581 </td> <td> 0.0283 </td> <td> 0.00016 </td>
-        </tr>
-        <tr>
-            <td>CCPM</td>
-            <td> 0.5361 </td> <td> 0.0338 </td> <td> 0.0120 </td>
-            <td> 0.5466 </td> <td> 0.1121 </td> <td> 0.00009 </td>
-            <td> 0.3641 </td> <td> 0.0284 </td> <td> 0.00018 </td>
-        </tr>
-        <tr>
-            <td>WD</td>
-            <td> 0.5357 </td> <td> 0.0391 </td> <td> 0.0176 </td>
-            <td> 0.5474 </td> <td> 0.1121 </td> <td> 0.00007 </td>
-            <td> 0.3596 </td> <td> 0.0283 </td> <td> 0.00007 </td>
-        </tr>
-        <tr>
-            <td>NFM</td>
-            <td> 0.5396 </td> <td> 0.0335 </td> <td> 0.0104 </td>
-            <td> 0.5438 </td> <td> 0.1120 </td> <td> 0.00007 </td>
-            <td> 0.3649 </td> <td> 0.0285 </td> <td> 0.00018 </td>
-        </tr>
-        <tr>
-            <td>DeepFM</td>
-            <td> 0.5369 </td> <td> 0.0416 </td> <td> 0.0182 </td>
-            <td> 0.5473 </td> <td> 0.1121 </td> <td> 0.00007 </td>
-            <td> 0.3586 </td> <td> 0.0283 </td> <td> 0.00023 </td>
-        </tr>
-        <tr>
-            <td rowspan=2> Recent NN-based </td>
-            <td>xDeepFM</td>
-            <td> 0.5359 </td> <td> 0.0431 </td> <td> 0.0163 </td>
-            <td> 0.5423 </td> <td> 0.1120 </td> <td> 0.00003 </td>
-            <td> 0.3580 </td> <td> 0.0283 </td> <td> 0.00013 </td>
-        </tr>
-        <tr>
-            <td>AFM</td>
-            <td> 0.5421 </td> <td> 0.0333 </td> <td> 0.0109 </td>
-            <td> 0.5470 </td> <td> 0.1122 </td> <td> 0.00007 </td>
-            <td> 0.3615 </td> <td> 0.0285 </td> <td> 0.00023 </td>
-        </tr>
-    </tbody>
-</table>
 
 ## Methods
 
