@@ -1,7 +1,4 @@
 
-data/yelp/user_user.dat
-data/deepctr_example/movielens_sample.txt
-*.dat
 metric_result/ccpm_movielens_metrics.pkl
 metric_result/deepfm_movielens_metrics.pkl
 metric_result/ipnn_movielens_metrics.pkl
