@@ -54,8 +54,10 @@ python3 deepctr_main.py -dataname -modelname
 
 #### Typical Methods
 
-- `Matrix Factorization (MF)`:矩陣分解的推薦系統的核心概念認為用戶興趣主要被少數的因素所影響以及商品被選擇與否也是受到少數的因素影響。因此將評分矩陣(Rating Matrix)拆解，投射到低維度的矩陣的隱因子空間(Latent Factor Space)。主要運用奇異值分解法(Singular Value Decomposition, SVD)進行矩陣分解，將原本的評分矩陣拆解成使用者因子矩陣(User Factor Matrix)以及物品因子矩陣(Item Factor Matrix)。
-- `Factorization Machine (FM)`:Factorization Machine在稀疏資料(Sparse Data)進行特徵交叉(Feature Interaction)並抽取出潛在因子(Latent Factor)，可在線性時間複雜度來進行訓練，且方便規模化。相較於簡易線性模型多考量了交互作用項，又比二階多項式迴歸(Degree-2 Polynomial Regression)更加具備泛化(Generalization)的能力。
+- `Matrix Factorization (MF)`:\
+矩陣分解的推薦系統的核心概念認為用戶興趣主要被少數的因素所影響以及商品被選擇與否也是受到少數的因素影響。因此將評分矩陣(Rating Matrix)拆解，投射到低維度的矩陣的隱因子空間(Latent Factor Space)。主要運用奇異值分解法(Singular Value Decomposition, SVD)進行矩陣分解，將原本的評分矩陣拆解成使用者因子矩陣(User Factor Matrix)以及物品因子矩陣(Item Factor Matrix)。
+- `Factorization Machine (FM)`:\
+Factorization Machine在稀疏資料(Sparse Data)進行特徵交叉(Feature Interaction)並抽取出潛在因子(Latent Factor)，可在線性時間複雜度來進行訓練，且方便規模化。相較於簡易線性模型多考量了交互作用項，又比二階多項式迴歸(Degree-2 Polynomial Regression)更加具備泛化(Generalization)的能力。
 
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20y%28%5Cmathrm%7Bx%7D%29%20%26%3D%20w_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Clangle%20%5Cmathrm%7Bv%7D_i%2C%20%5Cmathrm%7Bv%7D_j%20%5Crangle%20x_ix_j%7D%7D%20%5C%5C%20%26%3D%20w_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;%5Csum_%7Bk%3D1%7D%5E%7BK%7D%7B%5Csum_%7Bq%3Dk&plus;1%7D%5E%7BK%7D%7B%5Clangle%20%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%20%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5Cmathrm%7BW%7D%5E%7B%28q%29%7D%20%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_q%3A%5Cmathrm%7Bend%7D_q%5D%20%5Crangle%7D%7D%20%5Cend%7Baligned%7D">
@@ -71,7 +73,7 @@ y(\mathrm{x}) &= w_0+\sum_{i=1}^{n}{w_ix_i}+\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\lan
 --->
   
 #### NN-based Methods
-- `FM-supported Neural Network (FNN)`:
+- `FM-supported Neural Network (FNN)`:\
 以Factorization Machine為基礎，將FM所產生的特徵向量，投入一個類神經網路中，以MLP(Multi Layers Perceptron)代替內積來進行預測任務。
 
   <p align="center">
@@ -80,7 +82,7 @@ y(\mathrm{x}) &= w_0+\sum_{i=1}^{n}{w_ix_i}+\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\lan
   <img src="model_figure/FNN.png" width="450">
   </p>
 
-- `Product-based Neural Networks (IPNN, OPNN)`:
+- `Product-based Neural Networks (IPNN, OPNN)`:\
 比起FNN，在MLP的輸入加入每個field之間inner/outer product的特徵交叉。
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bcancat%7D%28%5B%5Cmathrm%7Bv%7D_1%2C%5Cmathrm%7Bv%7D_2%2C...%2C%5Cmathrm%7Bv%7D_K%2C%5Cmathrm%7Bp%7D%5D%29%29">
@@ -107,7 +109,7 @@ $$\mathrm{v}_k=W^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,..
 -->
 
 
-- `Product Network in Network (PIN)`:
+- `Product Network in Network (PIN)`:\
 根據IPNN, OPNN進行延伸，比起加入每個field之間inner/outer product的特徵交叉在MLP的輸入，PIN考慮將兩兩field之間的特徵們輸入不同的子網路模型萃取特徵，最後在放入MLP。
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bcancat%7D%28%5B%5Cmathrm%7Bv%7D_1%2C%5Cmathrm%7Bv%7D_2%2C...%2C%5Cmathrm%7Bv%7D_K%2C%5Ctilde%7B%5Cmathrm%7Bp%7D%7D%5D%29%29">
@@ -133,7 +135,7 @@ $$\mathrm{p}_{i,j}= \mathrm{v}_i \odot \mathrm{v}_j  \,\,\,\, i<j$$
 $$\mathrm{v}_k=W^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,...,K$$
 --->
 
-- `Convolutional Click Prediction Model (CCPM)`:
+- `Convolutional Click Prediction Model (CCPM)`:\
 此模型最主要的特色是將卷積(Convolution)的概念納入CTR的預測模型。
   - 用法一：考慮每個人在不同的時間軸上會有不同的特徵(Features)，透過 *1*-D Conv搭配 *p*-max 池化層(*p*-max pooling)來擷取不同時間(Temporal)的資訊。 *p*-max 池化層主要在處理每個人在與Item的互動時間、次數並不一致而無法單純使用原始的最大池化層進行。
   - 用法二：沒有不同時間的互動關係，改把不同Filed的資訊併在一起，改成不同Filed的embedding vector在相同維度上進行卷積運算然後取 *p*-max。
@@ -142,7 +144,14 @@ $$\mathrm{v}_k=W^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,..
  </p>
 
 
-- `Wide & Deep (WD)`
+- `Wide & Deep (WD)`:\
+WD模型最主要探討推薦系統模型的兩個挑戰:
+
+  - Memorization(記憶): 模型是否可以記住歷史資料的互動組合進行預測?
+  - Generalization(泛化): 模型可否能搓合出新的特徵組合增加預測結果的多樣性?
+  
+  因此在Memorization上，如下圖的左半部透過Logistic regression去學習各項特徵對於預測結果之間的關係；而在Generalization上，如下圖的右半部透過Deep Network來去學習各項特徵之間的交互關係以及利用Deep Network非線性轉換的方式擷取更高階的特徵。
+
 <p align="center">
   <img src="model_figure/Wide&Deep.png" width="450">
 </p>
