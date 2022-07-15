@@ -150,10 +150,10 @@ WD模型最主要探討推薦系統模型的兩個挑戰:
   - Memorization(記憶): 模型是否可以記住歷史資料的互動組合進行預測?
   - Generalization(泛化): 模型可否能搓合出新的特徵組合增加預測結果的多樣性?
   
-  因此在Memorization上，如下圖的左半部透過Logistic regression去學習各項特徵對於預測結果之間的關係；而在Generalization上，如下圖的右半部透過Deep Network來去學習各項特徵之間的交互關係以及利用Deep Network非線性轉換的方式擷取更高階的特徵。
+  在Memorization上可以透過Logistic regression來進行(下圖左邊的Wide models)。利用Logistic regression便可以學習各項特徵對於預測結果之間的關係(此部分的輸入特徵會需要額外人工的特徵工程 ex.cross-product transformation)。而在Generalization上可以透過Deep Network來擷取更高階的特徵組合(下圖右邊的Deep models)，進一步結合出新的特徵組合增加預測結果的多樣性。WD模型透過結合Wide models及Deep models來同時考慮Memorization以及Generalization(下圖中間的部分)。
 
 <p align="center">
-  <img src="model_figure/Wide&Deep.png" width="450">
+  <img src="model_figure/Wide&Deep.png" width="750">
 </p>
 
 
