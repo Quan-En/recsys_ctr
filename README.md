@@ -162,7 +162,8 @@ WD模型最主要探討推薦系統模型的兩個挑戰:
   <img src="model_figure/NFM.png" width="450">
 </p>
 
-- `Deep Factorization Machine (DeepFM)`
+- `Deep Factorization Machine (DeepFM)`:\
+DeepFM模型可以視為WD模型的改進版，在WD模型使用Logistic regression來學習各項特徵對於預測結果之間的關係，而在推薦系統當中往，資料往會是高維且稀疏的，若Logistic regression需要考慮二階交互作用項容易導致訓練結果不正確，因此將其替換Factorization machine(FM)恰好能解決這樣的問題，並且如此一來也能夠省去WD模型在Wide part需要額外的特徵工程，都可用相同的Embedding vector來作為輸入。
 <p align="center">
   <img src="model_figure/DeepFM.png" width="450">
 </p>
