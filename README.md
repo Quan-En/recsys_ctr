@@ -46,7 +46,7 @@ python3 deepctr_main.py -dataname -modelname
 </table>
 
 ### Measure criteria
-- `RMSE`
+- `RMSE (real valued)`
 
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7BRMSE%7D%3D%5Csqrt%7B%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7B%28y-%5Chat%7By%7D%29%5E2%7D%7D">
