@@ -157,10 +157,27 @@ WD模型最主要探討推薦系統模型的兩個挑戰:
 </p>
 
 
-- `Neural Factorization Machine (NFM)`
-<p align="center">
-  <img src="model_figure/NFM.png" width="450">
-</p>
+- `Neural Factorization Machine (NFM)`:\
+NFM模型主要是基於FM模型進行改良，在原始的FM模型中，它能充分考慮特徵之間的二階交互作用，但僅以線性的方式加在模型內，並不能無法考量特徵之間的非線性關係。因此NFM在這點上進行調整，並且充分?合了FM提取的二階線性特徵與神經網路模型提取高階非線性特徵。
+
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3Dw_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;f%28%5Cmathrm%7Bx%7D%29">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?f%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28f_%7B%5Cmathrm%7BBI%7D%7D%28%5Cmathrm%7Bx%7D%29%29">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?f_%7B%5Cmathrm%7BBI%7D%7D%28%5Cmathrm%7Bx%7D%29%3D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%20%5Codot%20x_j%20%5Cmathrm%7Bv%7D_j%7D%7D">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_i%3A%5Cmathrm%7BEmbedding%20%5C%2C%5C%2C%20vector%20%5C%2C%5C%2C%20of%20%5C%2C%5C%2C%20features%20%5C%2C%5C%2C%7D%20i">
+  <br >
+  <img src="model_figure/NFM.png" width="450">  
+  </p>
+
+<!---
+$$y(\mathrm{x})=w_0+\sum_{i=1}^{n}{w_ix_i}+f(\mathrm{x})$$
+$$f(\mathrm{x})=\mathrm{MLP}(f_{\mathrm{BI}}(\mathrm{x}))$$
+$$f_{\mathrm{BI}}(\mathrm{x})=\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{x_i \mathrm{v}_i \odot x_j \mathrm{v}_j}}$$
+$$\mathrm{v}_i:\mathrm{Embedding \,\, vector \,\, of \,\, features \,\,} i$$
+--->
 
 - `Deep Factorization Machine (DeepFM)`:\
 DeepFM模型可以視為WD模型的改進版，在WD模型使用Logistic regression來學習各項特徵對於預測結果之間的關係，而在推薦系統當中往，資料往會是高維且稀疏的，若Logistic regression需要考慮二階交互作用項容易導致訓練結果不正確，因此將其替換Factorization machine(FM)恰好能解決這樣的問題，並且如此一來也能夠省去WD模型在Wide part需要額外的特徵工程，都可用相同的Embedding vector來作為輸入。
