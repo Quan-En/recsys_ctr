@@ -156,6 +156,7 @@ WD模型最主要探討推薦系統模型的兩個挑戰:
     <img src="model_figure/Wide&Deep.png" width="750">
   </p>
 
+- `Deep Crossing (DCN)`
 
 - `Neural Factorization Machine (NFM)`:\
 NFM模型主要是基於FM模型進行改良，在原始的FM模型中，它能充分考慮特徵之間的二階交互作用，但僅以線性的方式加在模型內，並不能無法考量特徵之間的非線性關係。因此NFM在這點上進行調整，並且充分?合了FM提取的二階線性特徵與神經網路模型提取高階非線性特徵。
