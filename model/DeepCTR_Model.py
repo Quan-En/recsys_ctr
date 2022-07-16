@@ -76,4 +76,11 @@ def BuildModel(model_name, features_columns, device):
             task='regression',
             device=device,
         )
+    elif model_name == "dcn":
+        model = models.DCN(
+            linear_feature_columns=features_columns,
+            dnn_feature_columns=features_columns,
+            task='regression',
+            device=device,
+        )
     return model
