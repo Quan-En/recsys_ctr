@@ -1,7 +1,7 @@
 # Click-Through-Rate (CTR) prediction
 ## Model Design & Comparison for Recommendation Models
 <!--https://latex.codecogs.com/eqneditor/editor.php-->
-本作業將試著套用多種不同方法在不同資料集上。使用的方法主要分成兩類分別為第一類經典法及第二類以神經網路為主的相關方法。
+本專案將試著套用多種不同方法在不同資料集上。使用的方法主要分成兩類分別為第一類經典法及第二類以神經網路為主的相關方法。
 
 在第一類的方法以下方方式執行
 ```r
@@ -19,31 +19,21 @@ python3 deepctr_main.py -dataname -modelname
 ### Dataset Intro
 資料集共三種分別為: `movielens`, `yelp` 及 `douban_book`
 
-<table align="center">
-    <thead>
-        <tr>
-            <th colspan=2> </th>
-            <th align="center">Movielens</th>
-            <th align="center">Yelp</th>
-            <th align="center">Douban Book</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td rowspan=2> ID-range </td>
-            <td>User</td>
-            <td align="center"> [1,943] </td>
-            <td align="center"> [1,16239] </td>
-            <td align="center"> [1,13024] </td>
-        </tr>
-        <tr>
-            <td>Item</td>
-            <td align="center"> [1,1682] </td>
-            <td align="center"> [1,14284] </td>
-            <td align="center"> [1,22347] </td>
-        </tr>
-    </tbody>
-</table>
+- `movielens`:
+  - User ID range: [1,943]
+  - Item ID range: [1,1682]
+  - User features: age, occupation
+  - Item features: genre (multivalued)
+- `yelp`:
+  - User ID range: [1,16239]
+  - Item ID range: [1,14284]
+  - User features: compliment (multivalued)
+  - Item features: city, category (multivalued)
+- `douban_book`:
+  - User ID range: [1,13024]
+  - Item ID range: [1,22347]
+  - User features: location, group (multivalued)
+  - Item features: year, author, publisher
 
 ### Measure criteria
 - `RMSE (real valued)`
