@@ -179,9 +179,10 @@ $$\mathrm{v}_k=W^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,..
 此模型最主要的特色是將卷積(Convolution)的概念納入CTR的預測模型。
   - 用法一：考慮每個人在不同的時間軸上會有不同的特徵(Features)，透過 *1*-D Conv搭配 *p*-max 池化層(*p*-max pooling)來擷取不同時間(Temporal)的資訊。 *p*-max 池化層主要在處理每個人在與Item的互動時間、次數並不一致而無法單純使用原始的最大池化層進行。
   - 用法二：沒有不同時間的互動關係，改把不同Filed的資訊併在一起，改成不同Filed的embedding vector在相同維度上進行卷積運算然後取 *p*-max。
- <p align="center">
+
+  <p align="center">
   <img src="model_figure/CCPM.jpg" width="450">
- </p>
+  </p>
 
 
 - `Wide & Deep (WD)`:\
@@ -197,6 +198,10 @@ WD模型最主要探討推薦系統模型的兩個挑戰:
   </p>
 
 - `Deep Crossing (DCN)`
+
+  <p align="center">
+  <img src="model_figure/DCN.jpg" width="450">
+  </p>
 
 - `Neural Factorization Machine (NFM)`:\
 NFM模型主要是基於FM模型進行改良，在原始的FM模型中，它能充分考慮特徵之間的二階交互作用，但僅以線性的方式加在模型內，並不能無法考量特徵之間的非線性關係。因此NFM在這點上進行調整，並且充分?合了FM提取的二階線性特徵與神經網路模型提取高階非線性特徵。
