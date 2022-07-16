@@ -29,10 +29,6 @@ def TopkRecommend(pred_score, k=10):
     """
     indices = np.argsort(pred_score)[::-1][:k]
     return indices
-#     values, indices = torch.topk(pred_score, k)
-#     one_hot_indices = torch.zeros(pred_score.shape)
-#     one_hot_indices[indices] = 1
-#     return indices, one_hot_indices
 
 def Recall(relevant_item_id, pred_item_id):
     """
@@ -52,7 +48,7 @@ def DCG(relevant_item_id, pred_item_id):
     indices = np.arange(0, len(pred_item_id)) + 1
     return np.sum(np.isin(pred_item_id, relevant_item_id).astype(int) / np.log2(indices + 1))
 
-def IDCG(relevant_item_id, pred_item_id):
+def IDCG(pred_item_id):
     """
     Calculate IDCG
     """
@@ -63,4 +59,4 @@ def NDCG(relevant_item_id, pred_item_id):
     """
     Calculate NDCG
     """
-    return DCG(relevant_item_id, pred_item_id) / IDCG(relevant_item_id, pred_item_id)
+    return DCG(relevant_item_id, pred_item_id) / IDCG(pred_item_id)
