@@ -200,7 +200,7 @@ WD家程璶贝癚崩滤╰参家ㄢ珼驹:
 - `Deep Crossing (DCN)`
 
   <p align="center">
-  <img src="model_figure/DCN.jpg" width="450">
+  <img src="model_figure/DCN.png" width="450">
   </p>
 
 - `Neural Factorization Machine (NFM)`:\
