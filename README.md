@@ -47,8 +47,32 @@ python3 deepctr_main.py -dataname -modelname
 
 ### Measure criteria
 - `RMSE`
-- `Recall@10`
+
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7BRMSE%7D%3D%5Csqrt%7B%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7B%28y-%5Chat%7By%7D%29%5E2%7D%7D">
+  </p>
+
+- `Recall@10`:
+Recall at 10 is the proportion of relevant items found in the top-10 recommendations.
+
+  - Relevant item: Has a True/Actual rating >= 3.5
+  - Irrelevant item: Has a True/Actual rating < 3.5
+
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7BRecall@10%7D%3D%5Cfrac%7B%5Cmathrm%7BTotal%20%5C%2C%5C%2C%20number%20%5C%2C%5C%2C%20of%20%5C%2C%5C%2C%20recommended%20%5C%2C%5C%2C%20items%20%5C%2C%5C%2C%20@10%20%5C%2C%5C%2C%20that%20%5C%2C%5C%2C%20are%20%5C%2C%5C%2C%20relevant%7D%7D%7B%5Cmathrm%7BTotal%20%5C%2C%5C%2C%20number%20%5C%2C%5C%2C%20of%20%5C%2C%5C%2C%20relevant%20%5C%2C%5C%2C%20items%7D%7D">
+  </p>
+
+<!---
+$$\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}{(y-\hat{y})^2}}$$
+$$\mathrm{Recall@10}=\frac{\mathrm{Total \,\, number \,\, of \,\, recommended \,\, items \,\, @10 \,\, that \,\, are \,\, relevant}}{\mathrm{Total \,\, number \,\, of \,\, relevant \,\, items}}$$
+--->
+
+
+
+
 - `NDCG@10`
+
+
 
 ### Methods
 
