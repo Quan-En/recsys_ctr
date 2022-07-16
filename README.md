@@ -49,7 +49,7 @@ python3 deepctr_main.py -dataname -modelname
 - `RMSE (real valued)`
 
   <p align="center">
-  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7BRMSE%7D%3D%5Csqrt%7B%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7B%28y-%5Chat%7By%7D%29%5E2%7D%7D">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7BRMSE%7D%3D%5Csqrt%7B%5Cfrac%7B1%7D%7BN%7D%5Csum_%7Bi%3D1%7D%5E%7BN%7D%7B%28y_%7Bi%7D-%5Chat%7By%7D_%7Bi%7D%29%5E2%7D%7D">
   </p>
 
 - `Recall@10 (binary)`:
@@ -77,7 +77,7 @@ Recall at 10 is the proportion of relevant items found in the top-10 recommendat
   </p>
 
 <!---
-$$\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}{(y-\hat{y})^2}}$$
+$$\mathrm{RMSE}=\sqrt{\frac{1}{N}\sum_{i=1}^{N}{(y_{i}-\hat{y}_{i})^2}}$$
 
 $$\mathrm{Recall@10}=\frac{\mathrm{Total \,\, number \,\, of \,\, recommended \,\, items \,\, @10 \,\, that \,\, are \,\, relevant}}{\mathrm{Total \,\, number \,\, of \,\, relevant \,\, items}}$$
 
