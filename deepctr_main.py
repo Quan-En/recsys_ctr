@@ -16,7 +16,7 @@ import argparse
 
 def main():
     data_name_list = ["movielens", "yelp", "douban_book"]
-    model_name_list = ["deepfm", "ipnn", "opnn", "pin", "ccpm", "afm", "nfm", "xdeepfm", "fnn", "wd"]
+    model_name_list = ["deepfm", "ipnn", "opnn", "pin", "ccpm", "afm", "nfm", "xdeepfm", "fnn", "wd", "dcn"]
     # Argument
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataname", "-d", type=str, nargs='?', choices=data_name_list, help="DataSet name")
@@ -70,10 +70,7 @@ def main():
     model = DeepCTR_Model.BuildModel(args.modelname, features_columns, device)
     model.compile("adam", "mse", metrics=['mse'], )
     
-    if args.dataname == "movielens":
-        history = model.fit(train_model_input, train_score, batch_size=10, epochs=30, verbose=2)
-    else:
-        history = model.fit(train_model_input, train_score, batch_size=256, epochs=20, verbose=2)
+    history = model.fit(train_model_input, train_score, batch_size=256, epochs=20, verbose=2)
     
     total_loss = 0
     print("Calculating TrainSet RMSE...")
