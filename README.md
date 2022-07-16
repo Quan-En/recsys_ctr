@@ -190,8 +190,27 @@ DeepFM¼Ò«¬¥i¥Hµø¬°WD¼Ò«¬ªº§ï¶iª©¡A¦bWD¼Ò«¬¨Ï¥ÎLogistic regression¨Ó¾Ç²ß¦U¶µ¯S¼x¹
     <img src="model_figure/xDeepFM.png" width="450">
   </p>
 
-- `Attentional Factorization Machine (AFM)`
+- `Attentional Factorization Machine (AFM)`:\
+FM¼Ò«¬¯à°÷¦Ò¶q¯S¼x¤§¶¡ªº¤G¶¥¥æ¤¬§@¥Î¡A¦ý¬O©Ò¦³¯S¼xªºÅv­«³£¬O¬Û¦Pªº¡A³o¼Ëªº³B²z¤è¦¡©Î³\¨Ã¤£«ê·í¦]¬°¤£¬O©Ò¦³ªº¯S¼x³£¬O¦³¥Îªº¡A·í¦³µL¥Îªº¯S¼x¶i¦æ²Õ¦X¤S¥[¨ì¹w´ú¼Ò«¬¤¤¨ä¹ê·|±a¤J¾¸Án(Noise)ªº¤zÂZ¡A­°§CFMªº®ÄªG¡A¦]¦¹AFM°ò©ó³o¼ËªºÆ[ÂI¤Þ¤JAttentionªº¾÷¨î¡AÅý¼Ò«¬¦³¯à¤O¦Û¦æ½Õ¾ã¯S¼x¥æ¤¬§@¥Îªº­«­nµ{«×¡C
+
   <p align="center">
-    <img src="model_figure/AFM.png" width="450">
+  <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3Dw_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;f%28%5Cmathrm%7Bx%7D%29">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?f%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28f_%7B%5Cmathrm%7BBIAtt%7D%7D%28%5Cmathrm%7Bx%7D%29%29">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?f_%7B%5Cmathrm%7BBIAtt%7D%7D%28%5Cmathrm%7Bx%7D%29%3D%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7Ba_%7Bi%2Cj%7D%20%5Ctimes%20%28x_i%20%5Cmathrm%7Bv%7D_i%20%5Codot%20x_j%20%5Cmathrm%7Bv%7D_j%29%7D%7D">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?a_%7Bi%2Cj%7D%3D%5Cfrac%7B%5Cmathrm%7Bexp%7D%28a_%7Bi%2Cj%7D%27%29%7D%7B%5Csum_%7B%28i%2Cj%29%7D%7B%5Cmathrm%7Bexp%7D%28a_%7Bi%2Cj%7D%27%29%7D%7D">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?a_%7Bi%2Cj%7D%27%3D%5Cmathrm%7BMLP%7D_%7B%5Cmathrm%7BAttention%7D%7D%28x_i%20%5Cmathrm%7Bv%7D_i%20%5Codot%20x_j%20%5Cmathrm%7Bv%7D_j%29">
+  <br >
+  <img src="model_figure/AFM.png" width="450">
   </p>
 
+<!---
+$$y(\mathrm{x})=w_0+\sum_{i=1}^{n}{w_ix_i}+f(\mathrm{x})$$
+$$f(\mathrm{x})=\mathrm{MLP}(f_{\mathrm{BIAtt}}(\mathrm{x}))$$
+$$f_{\mathrm{BIAtt}}(\mathrm{x})=\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{a_{i,j} \times (x_i \mathrm{v}_i \odot x_j \mathrm{v}_j)}}$$
+$$a_{i,j}=\frac{\mathrm{exp}(a_{i,j}')}{\sum_{(i,j)}{\mathrm{exp}(a_{i,j}')}}$$
+$$a_{i,j}'=\mathrm{MLP}_{\mathrm{Attention}}(x_i \mathrm{v}_i \odot x_j \mathrm{v}_j)$$
+--->
