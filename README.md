@@ -197,12 +197,6 @@ WD¼Ò«¬³Ì¥D­n±´°Q±ÀÂË¨t²Î¼Ò«¬ªº¨â­Ó¬D¾Ô:
     <img src="model_figure/Wide&Deep.png" width="750">
   </p>
 
-- `Deep Crossing (DCN)`
-
-  <p align="center">
-  <img src="model_figure/DCN.png" width="450">
-  </p>
-
 - `Neural Factorization Machine (NFM)`:\
 NFM¼Ò«¬¥D­n¬O°ò©óFM¼Ò«¬¶i¦æ§ï¨}¡A¦b­ì©lªºFM¼Ò«¬¤¤¡A¥¦¯à¥R¤À¦Ò¼{¯S¼x¤§¶¡ªº¤G¶¥¥æ¤¬§@¥Î¡A¦ý¶È¥H½u©Êªº¤è¦¡¥[¦b¼Ò«¬¤º¡A¨Ã¤£¯àµLªk¦Ò¶q¯S¼x¤§¶¡ªº«D½u©ÊÃö«Y¡C¦]¦¹NFM¦b³oÂI¤W¶i¦æ½Õ¾ã¡A¨Ã¥B¥R¤À?¦X¤FFM´£¨úªº¤G¶¥½u©Ê¯S¼x»P¯«¸gºô¸ô¼Ò«¬´£¨ú°ª¶¥«D½u©Ê¯S¼x¡C
 
@@ -230,6 +224,24 @@ DeepFM¼Ò«¬¥i¥Hµø¬°WD¼Ò«¬ªº§ï¶iª©¡A¦bWD¼Ò«¬¨Ï¥ÎLogistic regression¨Ó¾Ç²ß¦U¶µ¯S¼x¹
   <p align="center">
     <img src="model_figure/DeepFM.png" width="450">
   </p>
+
+- `Deep Crossing (DCN)`:\
+¦bWide & Deep¼Ò«¬¹ê²{¤F¦P®É¦Ò¼{Memorization¤ÎGeneralization¡C¦ý¦bWide³Ì¤jªº°ÝÃD´N¬O»Ý­n¤H¤uªº¯S¼x¤uµ{¨Ó³]­p¯S¼x¤§¶¡¤e­¼¡CDeepFMÁöµM¦bWideªº³¡¤À¥HFM¶i¦æ¡A¦ý¤]¶È­­²Õ¦X¯S¼xªº¤G¶¥¥æ¤¬Ãö«Y¡C¦]¦¹Deep Crossingªº®Ö¤ß·§©À¦b©óÅý¼Ò«¬¦Û°Ê¥h¾Ç²ß¯S¼x¤§¶¡ªº°ª¶¥¥æ¤¬Ãö«Y¡C¦b¤U¹Ïªº¥ª¥bÃä·ÓÂÂ¬O¤@­ÓDeep Network¥D­n³B²zGeneralization¨Ï¼Ò«¬¦b¹w´ú¤W¦Ò¶q²Õ¦Xªº¦h¼Ë©Ê¡A¦Ó¦b¥kÃä¬°Cross Network¡CCross Network¥D­n¬yµ{¦p¤U:
+
+  <p align="center">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bx%7D_%7Bl&plus;1%7D%3D%28%5Cmathrm%7Bx%7D_%7Bl%7D%5Cotimes%5Cmathrm%7Bx%7D_%7Bl%7D%29%5Cmathrm%7Bw%7D_%7Bl%7D&plus;b_%7Bl%7D&plus;%5Cmathrm%7Bx%7D_%7Bl%7D%20%5C%2C%5C%2C%5C%2C%20l%3D0%2C1%2C...L">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?%5Cotimes%3A%20%5Cmathrm%7Bout%20%5C%2C%5C%2C%20product%7D">
+  <br >
+  <img src="model_figure/DCN.png" width="450">
+  </p>
+
+<!---
+$$\mathrm{x}_{l+1}=(\mathrm{x}_{l}\otimes\mathrm{x}_{l})\mathrm{w}_{l}+b_{l}+\mathrm{x}_{l} \,\,\, l=0,1,...L$$
+
+$$\otimes: \mathrm{out \,\, product}$$
+--->
 
 - `xDeepFM`
   <p align="center">
