@@ -152,9 +152,9 @@ WD模型最主要探討推薦系統模型的兩個挑戰:
   
   在Memorization上可以透過Logistic regression來進行(下圖左邊的Wide models)。利用Logistic regression便可以學習各項特徵對於預測結果之間的關係(此部分的輸入特徵會需要額外人工的特徵工程 ex.cross-product transformation)。而在Generalization上可以透過Deep Network來擷取更高階的特徵組合(下圖右邊的Deep models)，進一步結合出新的特徵組合增加預測結果的多樣性。WD模型透過結合Wide models及Deep models來同時考慮Memorization以及Generalization(下圖中間的部分)。
 
-<p align="center">
-  <img src="model_figure/Wide&Deep.png" width="750">
-</p>
+  <p align="center">
+    <img src="model_figure/Wide&Deep.png" width="750">
+  </p>
 
 
 - `Neural Factorization Machine (NFM)`:\
@@ -181,17 +181,17 @@ $$\mathrm{v}_i:\mathrm{Embedding \,\, vector \,\, of \,\, features \,\,} i$$
 
 - `Deep Factorization Machine (DeepFM)`:\
 DeepFM模型可以視為WD模型的改進版，在WD模型使用Logistic regression來學習各項特徵對於預測結果之間的關係，而在推薦系統當中往，資料往會是高維且稀疏的，若Logistic regression需要考慮二階交互作用項容易導致訓練結果不正確，因此將其替換Factorization machine(FM)恰好能解決這樣的問題，並且如此一來也能夠省去WD模型在Wide part需要額外的特徵工程，都可用相同的Embedding vector來作為輸入。
-<p align="center">
-  <img src="model_figure/DeepFM.png" width="450">
-</p>
+  <p align="center">
+    <img src="model_figure/DeepFM.png" width="450">
+  </p>
 
 - `xDeepFM`
-<p align="center">
-  <img src="model_figure/xDeepFM.png" width="450">
-</p>
+  <p align="center">
+    <img src="model_figure/xDeepFM.png" width="450">
+  </p>
 
 - `Attentional Factorization Machine (AFM)`
-<p align="center">
-  <img src="model_figure/AFM.png" width="450">
-</p>
+  <p align="center">
+    <img src="model_figure/AFM.png" width="450">
+  </p>
 
