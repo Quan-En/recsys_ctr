@@ -91,7 +91,7 @@ Factorization Machine¦bµ}²¨¸ê®Æ(Sparse Data)¶i¦æ¯S¼x¥æ¤e(Feature Interaction)¨Ã©
 
 $$\begin{aligned}
 y(\mathrm{x}) 
-&= w_0 + \sum_{i=1}^{n}{w_i x_i} + \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle \mathrm{v}_{i}, \mathrm{v}_{j} \right\rangle x_ix_j}} \\
+&= w_0 + {\sum_{i=1}^{n}{w_i x_i}} + \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle \mathrm{v}_{i}, \mathrm{v}_{j} \right\rangle x_ix_j}} \\
 &= w_0+\sum_{i=1}^{n}{w_ix_i}+\frac{1}{2} \left[ \left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i} , \sum_{i=1}^{n}{x_i \mathrm{v}_i} \right\rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i , x_i \mathrm{v}_i \right\rangle} \right]
 \end{aligned}
 $$
