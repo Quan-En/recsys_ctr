@@ -89,36 +89,42 @@ $$I_{\{\mathrm{condition}\}}(.):\mathrm{indicator \,\, function}$$
 - `Factorization Machine (FM)`:\
 Factorization Machine在稀疏資料(Sparse Data)進行特徵交叉(Feature Interaction)並抽取出潛在因子(Latent Factor)，可在線性時間複雜度來進行訓練，且方便規模化。相較於簡易線性模型多考量了交互作用項，又比二階多項式迴歸(Degree-2 Polynomial Regression)更加具備泛化(Generalization)的能力。
 
-$$\begin{aligned}
-y(\mathrm{x}) 
-&= {w_0} + {\sum_{i=1}^{n}{w_i x_i}} + {\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\langle \mathrm{v}_{i} \mathrm{v}_{j} \rangle x_i x_j }}} \\
-&= {w_0} + {\sum_{i=1}^{n}{\mathrm{w}_i x_i}} \\
-\end{aligned}
-$$
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20y%28%5Cmathrm%7Bx%7D%29%20%26%3D%20%7Bw_0%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_i%20x_i%7D%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20%5Cmathrm%7Bv%7D_%7Bi%7D%2C%20%5Cmathrm%7Bv%7D_%7Bj%7D%20%5Cright%5Crangle%20x_i%20x_j%20%7D%7D%7D%20%5C%5C%20%26%3D%20%7Bw_0%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cmathrm%7Bw%7D_i%20x_i%7D%7D%20&plus;%20%5Cfrac%7B1%7D%7B2%7D%20%5Cleft%5B%20%5Clangle%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%7D%20%5Crangle%20-%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20%5Cright%5D%5C%5C%20%5Cend%7Baligned%7D">
+  </p >
 
-
-$$\begin{aligned}
-y(\mathrm{x}) 
-&= w_0 + {\sum_{i=1}^{n}}{w_i x_i} + {\sum_{i=1}^{n}}{{\sum_{j=i+1}^{n}}{\langle {\mathrm{v}_i}, {\mathrm{v}_j} \rangle x_i x_j}} \\
-&= w_0 + {\sum_{i=1}^{n}{w_ix_i}} + \frac{1}{2} \left[ \langle {\sum_{i=1}^{n}{x_i \mathrm{v}_i} , \sum_{i=1}^{n}{x_i \mathrm{v}_i}} \rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i , x_i \mathrm{v}_i \right\rangle} \right] \\
-\end{aligned}
-$$
-
-  Since
-
-$$\left\langle \sum_{i=1}^{n}{x_i \mathrm{v_i}}  \, ,\,  \sum_{i=1}^{n}{x_i \mathrm{v_i}}\right\rangle = \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_i \mathrm{v}_i \right\rangle} + 2 \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_j \mathrm{v}_j \right\rangle}}$$
-
+  since
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cleft%5Clangle%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%5C%2C%20%2C%5C%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%5Cright%5Crangle%20%3D%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20&plus;%202%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_j%20%5Cmathrm%7Bv%7D_j%20%5Cright%5Crangle%7D%7D">
+  </p >
   then
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_j%20%5Cmathrm%7Bv%7D_j%20%5Cright%5Crangle%7D%7D%3D%5Cfrac%7B1%7D%7B2%7D%20%5Cleft%5B%20%5Cleft%5Clangle%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%5C%2C%20%2C%5C%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%5Cright%5Crangle%20-%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20%5Cright%5D">
+
+  In addition, we can treat $\mathrm{v}_i, \mathrm{v}_j$ as output from multi-filed embedding layers.
+  <p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20y%28%5Cmathrm%7Bx%7D%29%20%26%3D%20w_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20%5Cmathrm%7Bv%7D_i%2C%20%5Cmathrm%7Bv%7D_j%20%5Cright%5Crangle%20x_ix_j%7D%7D%20%5C%5C%20%26%3D%20w_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;%5Csum_%7Bk%3D1%7D%5E%7BK%7D%7B%5Csum_%7Bq%3Dk&plus;1%7D%5E%7BK%7D%7B%5Cleft%5Clangle%20%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%20%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5Cmathrm%7BW%7D%5E%7B%28q%29%7D%20%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_q%3A%5Cmathrm%7Bend%7D_q%5D%20%5Cright%5Crangle%7D%7D%20%5C%5C%20%5Cend%7Baligned%7D">
+
+
+<!--
+$$\begin{aligned}
+y(\mathrm{x}) 
+&= {w_0} + {\sum_{i=1}^{n}{w_i x_i}} + {\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle \mathrm{v}_{i}, \mathrm{v}_{j} \right\rangle x_i x_j }}} \\
+&= {w_0} + {\sum_{i=1}^{n}{\mathrm{w}_i x_i}} + \frac{1}{2} \left[ \langle {\sum_{i=1}^{n}{x_i \mathrm{v}_i} , \sum_{i=1}^{n}{x_i \mathrm{v}_i}} \rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i , x_i \mathrm{v}_i \right\rangle} \right]\\
+\end{aligned}
+$$
+
+$$\left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i}  \, ,\,  \sum_{i=1}^{n}{x_i \mathrm{v}_i}\right\rangle = \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_i \mathrm{v}_i \right\rangle} + 2 \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_j \mathrm{v}_j \right\rangle}}$$
 
 $$\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_j \mathrm{v}_j \right\rangle}}=\frac{1}{2} \left[ \left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i} \, ,\,  \sum_{i=1}^{n}{x_i \mathrm{v}_i} \right\rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_i \mathrm{v}_i \right\rangle} \right]$$
 
-  In addition, we can treat $\mathrm{v}_i, \mathrm{v}_j$ as output from multi-filed embedding layers.
-
 $$\begin{aligned}
 y(\mathrm{x}) &= w_0+\sum_{i=1}^{n}{w_ix_i}+\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle \mathrm{v}_i, \mathrm{v}_j \right\rangle x_ix_j}} \\ 
-&= w_0+\sum_{i=1}^{n}{w_ix_i}+\sum_{k=1}^{K}{\sum_{q=k+1}^{K}{\left\langle \mathrm{W}^{(k)} \mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \mathrm{W}^{(q)} \mathrm{x}[\mathrm{start}_q:\mathrm{end}_q] \right\rangle}}
+&= w_0+\sum_{i=1}^{n}{w_ix_i}+\sum_{k=1}^{K}{\sum_{q=k+1}^{K}{\left\langle \mathrm{W}^{(k)} \mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \mathrm{W}^{(q)} \mathrm{x}[\mathrm{start}_q:\mathrm{end}_q] \right\rangle}} \\
 \end{aligned}
 $$
+
+-->
 
 #### NN-based Methods
 - `FM-supported Neural Network (FNN)`:\
