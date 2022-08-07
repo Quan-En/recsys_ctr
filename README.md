@@ -149,7 +149,7 @@ $$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\,
 -->
 
 - `Product-based Neural Networks (IPNN, OPNN)`:\
-相比 Embedding + MLP 的傳統結構(FNN)， PNN 在 Embedding Layer 後設計了 Product Layer，以顯示捕捉 Field 之間的二階特徵相關性。Qu et al.(2016) 認為，單純的 "add" 以許不足以捕獲不同 Field 特徵之間的相關性 (原文："The 'add' operations of the perceptron layer might not be useful to explore the interactions of categorical data in multiple fields. ")
+相比 Embedding + MLP 的傳統結構(FNN)， PNN 在 Embedding Layer 後設計了 Product Layer，以顯示捕捉 Field 之間的二階特徵相關性。Qu et al.(2016) 認為，單純的 "add" 也許不足以捕獲不同 Field 特徵之間的相關性 (原文："The 'add' operations of the perceptron layer might not be useful to explore the interactions of categorical data in multiple fields. ")
 
   <p align="center">
   <br >
@@ -157,7 +157,7 @@ $$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\,
   <br >
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bp%7D%3D%5Cmathrm%7Bconcat%7D%28%5B%5Cmathrm%7Bflatten%7D%28%5Cmathrm%7Bp%7D_%7B1%2C2%7D%29%2C%5Cmathrm%7Bflatten%7D%28%5Cmathrm%7Bp%7D_%7B1%2C3%7D%29%2C%20...%2C%20%5Cmathrm%7Bflatten%7D%28%5Cmathrm%7Bp%7D_%7BK-1%2CK%7D%29%5D%29">
   <br >
-  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bp%7D_%7Bi%2Cj%7D%3D%5Cbegin%7Bcases%7D%20%5Clangle%20%5Cmathrm%7Bv%7D_i%2C%5Cmathrm%7Bv%7D_j%20%5Crangle%20%26%20%5Ctext%7Bif%20inner%20product%7D%20%5C%5C%20%5Cmathrm%7Bv%7D_i%20%5Cotimes%20%5Cmathrm%7Bv%7D_j%20%26%20%5Ctext%7Bif%20outer%20product%7D%20%5Cend%7Bcases%7D">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bp%7D_%7Bi%2Cj%7D%3D%5Cbegin%7Bcases%7D%20%5Clangle%20%5Cmathrm%7Bv%7D_i%2C%5Cmathrm%7Bv%7D_j%20%5Crangle%20%26%20%5Ctext%7Bif%20inner%20product%7D%20%5C%5C%20%5Cmathrm%7Bv%7D_i%20%5Cotimes%20%5Cmathrm%7Bv%7D_j%20%26%20%5Ctext%7Bif%20outer%20product%7D%20%5Cend%7Bcases%7D%20%5C%2C%5C%2C%5C%2C%5C%2C%20i%3Cj">
   <br >
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3D%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
   <br >
@@ -174,7 +174,7 @@ $$
 \mathrm{p}_{i,j}=\begin{cases}
 \langle \mathrm{v}_i,\mathrm{v}_j \rangle & \text{if inner product} \\
 \mathrm{v}_i \otimes \mathrm{v}_j & \text{if outer product}
-\end{cases}
+\end{cases} \,\,\,\, i<j
 $$
 
 $$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,...,K$$
@@ -183,7 +183,9 @@ $$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\,
 
 - `Product Network in Network (PIN)`:\
 根據IPNN, OPNN進行延伸，比起加入每個field之間inner/outer product的特徵交叉在MLP的輸入，PIN考慮將兩兩field之間的特徵們輸入不同的子網路模型萃取特徵，最後在放入MLP。
+
   <p align="center">
+  <br >
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bcancat%7D%28%5B%5Cmathrm%7Bv%7D_1%2C%5Cmathrm%7Bv%7D_2%2C...%2C%5Cmathrm%7Bv%7D_K%2C%5Ctilde%7B%5Cmathrm%7Bp%7D%7D%5D%29%29">
   <br >
   <img src="https://latex.codecogs.com/gif.latex?%5Ctilde%7B%5Cmathrm%7Bp%7D%7D%3D%5Cmathrm%7Bconcat%7D%28%5B%5Ctilde%7B%5Cmathrm%7Bp%7D%7D_%7B1%2C2%7D%2C%5Ctilde%7B%5Cmathrm%7Bp%7D%7D_%7B1%2C3%7D%2C%20...%2C%20%5Ctilde%7B%5Cmathrm%7Bp%7D%7D_%7BK-1%2CK%7D%5D%29">
@@ -192,7 +194,8 @@ $$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\,
   <br >
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bp%7D_%7Bi%2Cj%7D%3D%20%5Cmathrm%7Bv%7D_i%20%5Codot%20%5Cmathrm%7Bv%7D_j%20%5C%2C%5C%2C%5C%2C%5C%2C%20i%3Cj">
   <br >
-  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3DW%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3D%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
+  <br >
   </p>
 
 <!---
@@ -204,7 +207,7 @@ $$\tilde{\mathrm{p}}_{i,j}=\mathrm{subMLP}_{i,j}(\mathrm{concat}([\mathrm{v}_i, 
 
 $$\mathrm{p}_{i,j}= \mathrm{v}_i \odot \mathrm{v}_j  \,\,\,\, i<j$$
 
-$$\mathrm{v}_k=W^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,...,K$$
+$$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,...,K$$
 --->
 
 - `Convolutional Click Prediction Model (CCPM)`:\
