@@ -128,13 +128,23 @@ $$
 
 #### NN-based Methods
 - `FM-supported Neural Network (FNN)`:\
-以 Factorization Machine(FM) 為基礎，將 FM 所產生的特徵向量，投入一個類神經網路中，以 Multi-Layer Perceptron(MLP) 代替內積來進行預測任務。
+以 Factorization Machine(FM) 為基礎，將 FM 所產生的特徵向量，投入一個類神經網路中，以 Multi-Layer Perceptron(MLP) 代替內積來進行預測任務。期望可以利用非線性的激活函數於 MLP 中學出更有預測能力的高階交互特徵。
 
   <p align="center">
-  <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bconcat%7D%28%5BW%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%20%5C%2C%5C%2C%20%5Cmathrm%7Bfor%7D%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK%5D%29%29">
+  <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bcancat%7D%28%5B%5Cmathrm%7Bv%7D_1%2C%5Cmathrm%7Bv%7D_2%2C...%2C%5Cmathrm%7Bv%7D_K%5D%29%29">
+  <br >
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3D%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
   <br >
   <img src="model_figure/FNN.png" width="450">
   </p>
+
+<!--
+
+$$y(\mathrm{x})=\mathrm{MLP}(\mathrm{cancat}([\mathrm{v}_1,\mathrm{v}_2,...,\mathrm{v}_K]))$$
+
+$$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,...,K$$
+
+-->
 
 - `Product-based Neural Networks (IPNN, OPNN)`:\
 比起 FNN ，在 MLP 的輸入加入每個 field 之間 inner/outer product 的特徵交叉。
@@ -145,21 +155,24 @@ $$
   <br >
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bp%7D_%7Bi%2Cj%7D%3D%5Cbegin%7Bcases%7D%20%5Clangle%20%5Cmathrm%7Bv%7D_i%2C%5Cmathrm%7Bv%7D_j%20%5Crangle%20%26%20%5Ctext%7Bif%20inner%20product%7D%20%5C%5C%20%5Cmathrm%7Bv%7D_i%20%5Cotimes%20%5Cmathrm%7Bv%7D_j%20%26%20%5Ctext%7Bif%20outer%20product%7D%20%5Cend%7Bcases%7D">
   <br >
-  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3DW%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3D%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
   <br >
   <img src="model_figure/PNN.png" width="450">
   </p>
 
 <!--
+
 $$y(\mathrm{x})=\mathrm{MLP}(\mathrm{cancat}([\mathrm{v}_1,\mathrm{v}_2,...,\mathrm{v}_K,\mathrm{p}]))$$
 $$\mathrm{p}=\mathrm{concat}([\mathrm{flatten}(\mathrm{p}_{1,2}),\mathrm{flatten}(\mathrm{p}_{1,3}), ..., \mathrm{flatten}(\mathrm{p}_{K-1,K})])$$
+
 $$
 \mathrm{p}_{i,j}=\begin{cases}
 \langle \mathrm{v}_i,\mathrm{v}_j \rangle & \text{if inner product} \\
 \mathrm{v}_i \otimes \mathrm{v}_j & \text{if outer product}
 \end{cases}
 $$
-$$\mathrm{v}_k=W^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,...,K$$
+
+$$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\, k=1,2,...,K$$
 -->
 
 
