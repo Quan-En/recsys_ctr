@@ -101,7 +101,7 @@ Factorization Machine¦bµ}²¨¸ê®Æ(Sparse Data)¶i¦æ¯S¼x¥æ¤e(Feature Interaction)¨Ã©
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_j%20%5Cmathrm%7Bv%7D_j%20%5Cright%5Crangle%7D%7D%3D%5Cfrac%7B1%7D%7B2%7D%20%5Cleft%5B%20%5Cleft%5Clangle%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%5C%2C%20%2C%5C%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%5Cright%5Crangle%20-%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20%5Cright%5D">
 
-  In addition, we can treat $\mathrm{v}_i, \mathrm{v}_j$ as output from multi-filed embedding layers.
+  In another way, we can treat $\mathrm{v}_i, \mathrm{v}_j$ as output from multi-filed embedding layers.
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20y%28%5Cmathrm%7Bx%7D%29%20%26%3D%20w_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20%5Cmathrm%7Bv%7D_i%2C%20%5Cmathrm%7Bv%7D_j%20%5Cright%5Crangle%20x_ix_j%7D%7D%20%5C%5C%20%26%3D%20w_0&plus;%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_ix_i%7D&plus;%5Csum_%7Bk%3D1%7D%5E%7BK%7D%7B%5Csum_%7Bq%3Dk&plus;1%7D%5E%7BK%7D%7B%5Cleft%5Clangle%20%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%20%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5Cmathrm%7BW%7D%5E%7B%28q%29%7D%20%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_q%3A%5Cmathrm%7Bend%7D_q%5D%20%5Cright%5Crangle%7D%7D%20%5C%5C%20%5Cend%7Baligned%7D">
 
@@ -128,7 +128,7 @@ $$
 
 #### NN-based Methods
 - `FM-supported Neural Network (FNN)`:\
-¥HFactorization Machine¬°°òÂ¦¡A±NFM©Ò²£¥Íªº¯S¼x¦V¶q¡A§ë¤J¤@­ÓÃþ¯«¸gºô¸ô¤¤¡A¥HMLP(Multi Layers Perceptron)¥N´À¤º¿n¨Ó¶i¦æ¹w´ú¥ô°È¡C
+¥H Factorization Machine(FM) ¬°°òÂ¦¡A±N FM ©Ò²£¥Íªº¯S¼x¦V¶q¡A§ë¤J¤@­ÓÃþ¯«¸gºô¸ô¤¤¡A¥H Multi Layers Perceptron(MLP) ¥N´À¤º¿n¨Ó¶i¦æ¹w´ú¥ô°È¡C
 
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bconcat%7D%28%5BW%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%20%5C%2C%5C%2C%20%5Cmathrm%7Bfor%7D%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK%5D%29%29">
@@ -137,7 +137,7 @@ $$
   </p>
 
 - `Product-based Neural Networks (IPNN, OPNN)`:\
-¤ñ°_FNN¡A¦bMLPªº¿é¤J¥[¤J¨C­Ófield¤§¶¡inner/outer productªº¯S¼x¥æ¤e¡C
+¤ñ°_ FNN ¡A¦b MLP ªº¿é¤J¥[¤J¨C­Ó field ¤§¶¡ inner/outer product ªº¯S¼x¥æ¤e¡C
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bcancat%7D%28%5B%5Cmathrm%7Bv%7D_1%2C%5Cmathrm%7Bv%7D_2%2C...%2C%5Cmathrm%7Bv%7D_K%2C%5Cmathrm%7Bp%7D%5D%29%29">
   <br >
