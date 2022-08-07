@@ -97,12 +97,14 @@ Factorization Machine¦bµ}²¨¸ê®Æ(Sparse Data)¶i¦æ¯S¼x¥æ¤e(Feature Interaction)¨Ã©
   $$
 
   Since
+
   $$\begin{aligned}
   \left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i} \, ,\,  \sum_{i=1}^{n}{x_i \mathrm{v}_i} \right\rangle &= \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_i \mathrm{v}_i \right\rangle} + 2 \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_j \mathrm{v}_j \right\rangle}}
   \end{aligned}
   $$
 
   then
+  
   $$\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_j \mathrm{v}_j \right\rangle}}=\frac{1}{2} \left[ \left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i} \, ,\,  \sum_{i=1}^{n}{x_i \mathrm{v}_i} \right\rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_i \mathrm{v}_i \right\rangle} \right]$$
 
   In addition, we can treat $\mathrm{v}_i, \mathrm{v}_j$ as output from multi-filed embedding layers.
