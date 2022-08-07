@@ -90,12 +90,12 @@ $$I_{\{\mathrm{condition}\}}(.):\mathrm{indicator \,\, function}$$
 Factorization Machine¦bµ}²¨¸ê®Æ(Sparse Data)¶i¦æ¯S¼x¥æ¤e(Feature Interaction)¨Ã©â¨ú¥X¼ç¦b¦]¤l(Latent Factor)¡A¥i¦b½u©Ê®É¶¡½ÆÂø«×¨Ó¶i¦æ°V½m¡A¥B¤è«K³W¼Ò¤Æ¡C¬Û¸û©óÂ²©ö½u©Ê¼Ò«¬¦h¦Ò¶q¤F¥æ¤¬§@¥Î¶µ¡A¤S¤ñ¤G¶¥¦h¶µ¦¡°jÂk(Degree-2 Polynomial Regression)§ó¥[¨ã³Æªx¤Æ(Generalization)ªº¯à¤O¡C
 
   <p align="center">
-  <img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20y%28%5Cmathrm%7Bx%7D%29%20%26%3D%20%7Bw_0%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_i%20x_i%7D%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20%5Cmathrm%7Bv%7D_%7Bi%7D%2C%20%5Cmathrm%7Bv%7D_%7Bj%7D%20%5Cright%5Crangle%20x_i%20x_j%20%7D%7D%7D%20%5C%5C%20%26%3D%20%7Bw_0%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cmathrm%7Bw%7D_i%20x_i%7D%7D%20&plus;%20%5Cfrac%7B1%7D%7B2%7D%20%5Cleft%5B%20%5Clangle%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%7D%20%5Crangle%20-%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20%5Cright%5D%5C%5C%20%5Cend%7Baligned%7D">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cbegin%7Baligned%7D%20y%28%5Cmathrm%7Bx%7D%29%20%26%3D%20%7Bw_0%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bw_i%20x_i%7D%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20%5Cmathrm%7Bv%7D_%7Bi%7D%2C%20%5Cmathrm%7Bv%7D_%7Bj%7D%20%5Cright%5Crangle%20x_i%20x_j%20%7D%7D%7D%20%5C%5C%20%26%3D%20%7Bw_0%7D%20&plus;%20%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cmathrm%7Bw%7D_i%20x_i%7D%7D%20&plus;%20%5Cfrac%7B1%7D%7B2%7D%20%5Cleft%5B%20%5Cleft%5Clangle%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%5Cright%5Crangle%20-%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20%5Cright%5D%20%5C%5C%20%5Cend%7Baligned%7D">
   </p >
 
   since
   <p align="center">
-  <img src="https://latex.codecogs.com/gif.latex?%5Cleft%5Clangle%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%5C%2C%20%2C%5C%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%5Cright%5Crangle%20%3D%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20&plus;%202%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%5C%2C%20%2C%20%5C%2C%20x_j%20%5Cmathrm%7Bv%7D_j%20%5Cright%5Crangle%7D%7D">
+  <img src="https://latex.codecogs.com/gif.latex?%5Cleft%5Clangle%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%20%2C%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7Bx_i%20%5Cmathrm%7Bv%7D_i%7D%5Cright%5Crangle%20%3D%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%2C%20x_i%20%5Cmathrm%7Bv%7D_i%20%5Cright%5Crangle%7D%20&plus;%202%20%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%7B%5Csum_%7Bj%3Di&plus;1%7D%5E%7Bn%7D%7B%5Cleft%5Clangle%20x_i%20%5Cmathrm%7Bv%7D_i%20%2C%20x_j%20%5Cmathrm%7Bv%7D_j%20%5Cright%5Crangle%7D%7D">
   </p >
   then
   <p align="center">
@@ -110,11 +110,11 @@ Factorization Machine¦bµ}²¨¸ê®Æ(Sparse Data)¶i¦æ¯S¼x¥æ¤e(Feature Interaction)¨Ã©
 $$\begin{aligned}
 y(\mathrm{x}) 
 &= {w_0} + {\sum_{i=1}^{n}{w_i x_i}} + {\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle \mathrm{v}_{i}, \mathrm{v}_{j} \right\rangle x_i x_j }}} \\
-&= {w_0} + {\sum_{i=1}^{n}{\mathrm{w}_i x_i}} + \frac{1}{2} \left[ \langle {\sum_{i=1}^{n}{x_i \mathrm{v}_i} , \sum_{i=1}^{n}{x_i \mathrm{v}_i}} \rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i , x_i \mathrm{v}_i \right\rangle} \right]\\
+&= {w_0} + {\sum_{i=1}^{n}{\mathrm{w}_i x_i}} + \frac{1}{2} \left[ \left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i} , \sum_{i=1}^{n}{x_i \mathrm{v}_i} \right\rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i , x_i \mathrm{v}_i \right\rangle} \right] \\
 \end{aligned}
 $$
 
-$$\left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i}  \, ,\,  \sum_{i=1}^{n}{x_i \mathrm{v}_i}\right\rangle = \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_i \mathrm{v}_i \right\rangle} + 2 \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_j \mathrm{v}_j \right\rangle}}$$
+$$\left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i} , \sum_{i=1}^{n}{x_i \mathrm{v}_i}\right\rangle = \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i , x_i \mathrm{v}_i \right\rangle} + 2 \sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i , x_j \mathrm{v}_j \right\rangle}}$$
 
 $$\sum_{i=1}^{n}{\sum_{j=i+1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_j \mathrm{v}_j \right\rangle}}=\frac{1}{2} \left[ \left\langle \sum_{i=1}^{n}{x_i \mathrm{v}_i} \, ,\,  \sum_{i=1}^{n}{x_i \mathrm{v}_i} \right\rangle - \sum_{i=1}^{n}{\left\langle x_i \mathrm{v}_i \, , \, x_i \mathrm{v}_i \right\rangle} \right]$$
 
