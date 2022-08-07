@@ -128,7 +128,7 @@ $$
 
 #### NN-based Methods
 - `FM-supported Neural Network (FNN)`:\
-以 Factorization Machine(FM) 為基礎，將 FM 所產生的特徵向量，投入一個類神經網路中，以 Multi Layers Perceptron(MLP) 代替內積來進行預測任務。
+以 Factorization Machine(FM) 為基礎，將 FM 所產生的特徵向量，投入一個類神經網路中，以 Multi-Layer Perceptron(MLP) 代替內積來進行預測任務。
 
   <p align="center">
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bconcat%7D%28%5BW%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%20%5C%2C%5C%2C%20%5Cmathrm%7Bfor%7D%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK%5D%29%29">
