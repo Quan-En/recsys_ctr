@@ -131,11 +131,13 @@ $$
 以 Factorization Machine(FM) 為基礎，將 FM 所產生的特徵向量，投入一個類神經網路中，以 Multi-Layer Perceptron(MLP) 代替內積來進行預測任務。期望可以利用非線性的激活函數於 MLP 中學出更有預測能力的高階交互特徵。
 
   <p align="center">
+  <br >
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bcancat%7D%28%5B%5Cmathrm%7Bv%7D_1%2C%5Cmathrm%7Bv%7D_2%2C...%2C%5Cmathrm%7Bv%7D_K%5D%29%29">
   <br >
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3D%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
   <br >
   <img src="model_figure/FNN.png" width="450">
+  <br >
   </p>
 
 <!--
@@ -147,8 +149,10 @@ $$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\,
 -->
 
 - `Product-based Neural Networks (IPNN, OPNN)`:\
-比起 FNN ，在 MLP 的輸入加入每個 field 之間 inner/outer product 的特徵交叉。
+相比 Embedding + MLP 的傳統結構(FNN)， PNN 在 Embedding Layer 後設計了 Product Layer，以顯示捕捉 Field 之間的二階特徵相關性。Qu et al.(2016) 認為，單純的 "add" 以許不足以捕獲不同 Field 特徵之間的相關性 (原文："The 'add' operations of the perceptron layer might not be useful to explore the interactions of categorical data in multiple fields. ")
+
   <p align="center">
+  <br >
   <img src="https://latex.codecogs.com/gif.latex?y%28%5Cmathrm%7Bx%7D%29%3D%5Cmathrm%7BMLP%7D%28%5Cmathrm%7Bcancat%7D%28%5B%5Cmathrm%7Bv%7D_1%2C%5Cmathrm%7Bv%7D_2%2C...%2C%5Cmathrm%7Bv%7D_K%2C%5Cmathrm%7Bp%7D%5D%29%29">
   <br >
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bp%7D%3D%5Cmathrm%7Bconcat%7D%28%5B%5Cmathrm%7Bflatten%7D%28%5Cmathrm%7Bp%7D_%7B1%2C2%7D%29%2C%5Cmathrm%7Bflatten%7D%28%5Cmathrm%7Bp%7D_%7B1%2C3%7D%29%2C%20...%2C%20%5Cmathrm%7Bflatten%7D%28%5Cmathrm%7Bp%7D_%7BK-1%2CK%7D%29%5D%29">
@@ -158,6 +162,7 @@ $$\mathrm{v}_k=\mathrm{W}^{(k)}\mathrm{x}[\mathrm{start}_k:\mathrm{end}_k], \,\,
   <img src="https://latex.codecogs.com/gif.latex?%5Cmathrm%7Bv%7D_k%3D%5Cmathrm%7BW%7D%5E%7B%28k%29%7D%5Cmathrm%7Bx%7D%5B%5Cmathrm%7Bstart%7D_k%3A%5Cmathrm%7Bend%7D_k%5D%2C%20%5C%2C%5C%2C%20k%3D1%2C2%2C...%2CK">
   <br >
   <img src="model_figure/PNN.png" width="450">
+  <br >
   </p>
 
 <!--
